@@ -1,0 +1,81 @@
+{
+  "name": "crtyxspeed",
+  "version": "1.0.0",
+  "description": "Windows network optimization tool with netsh commands",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "prod": "electron .",
+    "build": "npm run build:clean && electron-builder",
+    "build:win": "npm run build:clean && electron-builder --win",
+    "build:clean": "rimraf dist",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "electron",
+    "network",
+    "optimization",
+    "windows"
+  ],
+  "author": "CrtyXSpeed",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^24.6.4",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "build": {
+    "appId": "com.crtyxspeed.networkoptimizer",
+    "productName": "CrtyXSpeed Network Optimizer",
+    "copyright": "Copyright © 2024 CrtyXSpeed",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "!node_modules/.cache",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets",
+        "to": "assets"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "requireAdministrator",
+      "publisherName": "CrtyXSpeed",
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CrtyXSpeed Network Optimizer",
+      "uninstallDisplayName": "CrtyXSpeed Network Optimizer",
+      "license": "LICENSE.txt",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "menuCategory": "System Tools"
+    }
+  }
+}

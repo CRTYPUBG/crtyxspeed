@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrtyXSpeed - Network Optimizer</title>
+    <link rel="icon" type="image/png" href="assets/tray-icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/logo-transparent.png" alt="CrtyXSpeed Logo" class="logo-image">
+                <div class="logo-text">
+                    <h1>CrtyXSpeed</h1>
+                    <p>Windows Network Optimizer</p>
+                </div>
+            </div>
+            <div class="theme-controls">
+                <div class="theme-selector">
+                    <div class="theme-btn active" data-theme="black"></div>
+                    <div class="theme-btn" data-theme="white"></div>
+                    <div class="theme-btn" data-theme="blue"></div>
+                    <div class="theme-btn" data-theme="green"></div>
+                    <div class="theme-btn" data-theme="orange"></div>
+                </div>
+                <button id="darkModeToggle" class="mode-toggle">🌙</button>
+            </div>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Admin Status:</span>
+                <span id="adminStatus" class="status-value">Checking...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Last State:</span>
+                <span id="lastState" class="status-value">Unknown</span>
+            </div>
+        </div>
+
+        <!-- Main Controls -->
+        <div class="main-controls">
+            <div class="control-group">
+                <button id="optimizeBtn" class="action-btn optimize-btn">
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-text">Optimize Network</span>
+                </button>
+                <button id="revertBtn" class="action-btn revert-btn">
+                    <span class="btn-icon">↺</span>
+                    <span class="btn-text">Revert to Defaults</span>
+                </button>
+            </div>
+            <button id="refreshBtn" class="secondary-btn">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-text">Refresh Current Settings</span>
+            </button>
+        </div>
+
+        <!-- Status Display -->
+        <div class="status" id="status">Ready to optimize your network</div>
+
+        <!-- Output Terminal -->
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span class="terminal-title">Network Settings Output</span>
+                <button id="clearOutput" class="clear-btn">Clear</button>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header-dots">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot dot-red"></div>
+                        <div class="terminal-dot dot-yellow"></div>
+                        <div class="terminal-dot dot-green"></div>
+                    </div>
+                    <div>Administrator: PowerShell</div>
+                </div>
+                <div id="terminal" class="terminal-content">CrtyXSpeed Network Optimizer ready...
+                    Click "Refresh Current Settings" to view current network configuration.</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">CrtyXSpeed Network Optimizer v1.0 | Admin Rights Required</div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Processing network commands...</div>
+        </div>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden">
+            <div class="notification-content">
+                <span class="notification-icon"></span>
+                <span class="notification-message"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
