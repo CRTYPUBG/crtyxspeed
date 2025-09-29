@@ -1,4 +1,5 @@
 # CrtyXSpeed - Network Optimization Tool
+<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/c65cff95-9077-4a52-ab99-1772e06b976d" />
 
 A modern Electron desktop application for Windows network optimization using netsh commands.
 
